@@ -27,6 +27,23 @@ let memories = [
   }
 ];
 
+function showMemory() {
+  const memoryBox = document.getElementById("memoryBox");
+  const memoryPhoto = document.getElementById("memoryPhoto");
+  const memoryText = document.getElementById("memoryText");
+
+  const randomMemory = memories[Math.floor(Math.random() * memories.length)];
+
+  memoryPhoto.src = randomMemory.photo;
+  memoryText.innerHTML = randomMemory.text;
+
+  memoryBox.classList.remove("hidden");
+}
+
+canvas.addEventListener("click", showMemory);
+canvas.addEventListener("touchstart", showMemory);
+
+
 // 3️⃣ drawStars function
 function drawStars() {
    ...
