@@ -1,6 +1,15 @@
 // 1️⃣ Canvas setup
 const canvas = document.getElementById("stars");
 const ctx = canvas.getContext("2d");
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+
+resizeCanvas();
+
+window.addEventListener("resize", resizeCanvas);
+
 
 // 2️⃣ Memories array MUST be defined BEFORE click event
 let memories = [
