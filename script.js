@@ -36,6 +36,9 @@ function drawStars() {
   ctx.fillStyle = "black";
 ctx.fillRect(0, 0, canvas.width, canvas.height);
 
+  ctx.fillStyle = "black";
+ctx.fillRect(0, 0, canvas.width, canvas.height);
+
 
   /* Moving background stars */
   ctx.fillStyle = "white";
@@ -46,6 +49,7 @@ ctx.fillRect(0, 0, canvas.width, canvas.height);
       star.y = 0;
       star.x = Math.random() * canvas.width;
     }
+    
 
     ctx.beginPath();
     ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
@@ -78,6 +82,19 @@ ctx.fillRect(0, 0, canvas.width, canvas.height);
 }
 
 drawStars();
+canvas.addEventListener("click", function() {
+
+  const memoryBox = document.getElementById("memoryBox");
+  const memoryPhoto = document.getElementById("memoryPhoto");
+  const memoryText = document.getElementById("memoryText");
+
+  const randomMemory = memories[Math.floor(Math.random() * memories.length)];
+
+  memoryPhoto.src = randomMemory.photo;
+  memoryText.innerHTML = randomMemory.text;
+
+  memoryBox.classList.remove("hidden");
+});
 
 /* Memories + Photos */
 let memories = [
