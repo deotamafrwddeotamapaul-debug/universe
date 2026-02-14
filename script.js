@@ -76,15 +76,15 @@ drawStars();
 let memories = [
   {
     text: "The first time you smiled at me ✨",
-    photo: "photo1.jpg"
+    photo: "photo1.jpeg"
   },
   {
     text: "That stupid inside joke 😂",
-    photo: "photo2.jpg"
+    photo: "photo2.jpeg"
   },
   {
     text: "Late night talks 🌙",
-    photo: "photo3.jpg"
+    photo: "photo3.jpeg"
   }
 ];
 
