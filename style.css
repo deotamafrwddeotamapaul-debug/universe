@@ -1,108 +1,81 @@
-/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Background */
 body {
   overflow: hidden;
-  background: radial-gradient(circle at bottom, #0d1b2a, #000000);
+  background: black;
   font-family: 'Courier New', monospace;
   color: white;
   text-align: center;
 }
 
-/* Canvas */
 canvas {
   position: fixed;
   top: 0;
   left: 0;
-  background: black;
   z-index: 1;
 }
-#memoryBox {
-  position: absolute;
-  bottom: 8%;
-  width: 100%;
-  text-align: center;
+
+.content {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 5;
 }
 
-/* Intro Section */
-.content {
-  position: absolute;
-  top: 35%;
-  width: 100%;
-  z-index: 2;
-}
-
 .glow {
-  font-size: 3em;
-  text-shadow: 0 0 10px #ffffff,
+  font-size: 2.5rem;
+  text-shadow: 0 0 10px #fff,
                0 0 20px #ff69b4,
                0 0 30px #ff69b4;
 }
 
 .subtitle {
+  margin: 15px 0 25px;
   opacity: 0.8;
-  margin-top: 10px;
-  margin-bottom: 25px;
-  font-size: 1.1em;
 }
 
-/* Button */
 button {
-  padding: 12px 28px;
-  font-size: 16px;
+  padding: 12px 30px;
   background: #ff69b4;
   border: none;
   border-radius: 25px;
+  font-size: 16px;
   cursor: pointer;
-  transition: all 0.3s ease;
 }
 
 button:hover {
   background: white;
   color: black;
-  transform: scale(1.1);
 }
 
-/* Memory Section */
 #memoryBox {
-  position: absolute;
-  bottom: 8%;
-  width: 100%;
+  position: fixed;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  width: 90%;
+  max-width: 300px;
   text-align: center;
-  animation: fadeIn 1.2s ease-in-out;
 }
 
 #memoryPhoto {
-  width: 240px;
-  max-width: 80%;
-  border-radius: 18px;
-  margin-bottom: 15px;
+  width: 100%;
+  max-width: 260px;
+  border-radius: 15px;
   box-shadow: 0 0 25px rgba(255,105,180,0.7);
-  transition: transform 0.4s ease;
-}
-
-#memoryPhoto:hover {
-  transform: scale(1.05);
 }
 
 #memoryText {
-  font-size: 1.2em;
-  letter-spacing: 0.5px;
+  margin-top: 10px;
+  font-size: 1rem;
 }
 
-/* Hidden Class */
 .hidden {
   display: none;
-}
-
-/* Fade Animation */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
 }
