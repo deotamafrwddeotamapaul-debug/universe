@@ -4,31 +4,32 @@ const ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-let stars = [];
-let constellation = [];
+/* Resize support */
+window.addEventListener("resize", function() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+});
 
-/* Random stars */
+/* Background stars */
+let stars = [];
+
 for (let i = 0; i < 200; i++) {
   stars.push({
     x: Math.random() * canvas.width,
     y: Math.random() * canvas.height,
     radius: Math.random() * 1.5 + 0.5,
-    speed: Math.random() * 0.3
+    speed: Math.random() * 0.4
   });
 }
 
 /* Constellation shape */
-function createConstellation() {
-  constellation = [
-    {x: canvas.width/2 - 120, y: 200},
-    {x: canvas.width/2 - 60, y: 170},
-    {x: canvas.width/2, y: 220},
-    {x: canvas.width/2 + 60, y: 170},
-    {x: canvas.width/2 + 120, y: 200}
-  ];
-}
-
-createConstellation();
+let constellation = [
+  {x: canvas.width/2 - 120, y: 200},
+  {x: canvas.width/2 - 60, y: 170},
+  {x: canvas.width/2, y: 220},
+  {x: canvas.width/2 + 60, y: 170},
+  {x: canvas.width/2 + 120, y: 200}
+];
 
 function drawStars() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -37,6 +38,7 @@ function drawStars() {
   ctx.fillStyle = "white";
   stars.forEach(star => {
     star.y += star.speed;
+
     if (star.y > canvas.height) {
       star.y = 0;
       star.x = Math.random() * canvas.width;
@@ -51,6 +53,7 @@ function drawStars() {
   ctx.strokeStyle = "#ff69b4";
   ctx.lineWidth = 1.5;
   ctx.beginPath();
+
   constellation.forEach((point, index) => {
     if (index === 0) {
       ctx.moveTo(point.x, point.y);
@@ -58,9 +61,10 @@ function drawStars() {
       ctx.lineTo(point.x, point.y);
     }
   });
+
   ctx.stroke();
 
-  /* Draw constellation stars */
+  /* Draw constellation points */
   constellation.forEach(point => {
     ctx.beginPath();
     ctx.arc(point.x, point.y, 3, 0, Math.PI * 2);
@@ -72,7 +76,7 @@ function drawStars() {
 
 drawStars();
 
-/* Memories with photos */
+/* Memories + Photos */
 let memories = [
   {
     text: "The first time you smiled at me ✨",
@@ -102,7 +106,11 @@ canvas.addEventListener("click", function() {
   memoryBox.classList.remove("hidden");
 });
 
-/* Start music */
+/* Start music + hide intro */
 function startExperience() {
-  document.getElementById("bgMusic").play();
+  const music = document.getElementById("bgMusic");
+  const content = document.querySelector(".content");
+
+  music.play();
+  content.style.display = "none";
 }
