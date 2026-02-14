@@ -22,7 +22,13 @@ canvas {
   background: black;
   z-index: 1;
 }
-
+#memoryBox {
+  position: absolute;
+  bottom: 8%;
+  width: 100%;
+  text-align: center;
+  z-index: 5;
+}
 
 /* Intro Section */
 .content {
